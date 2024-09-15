@@ -1,0 +1,58 @@
+/* No margin or padding. Choose font-family */
+body,
+nav {
+  margin: 0; /* Sets all margins to 0 but top one especially to 0 for nav so sits top browser window */
+  padding: 0;
+  font-family: "Noto Sans", Helvetica, sans-serif;
+}
+
+/* Create central main section */
+main {
+  max-width: 1140px; /* Max width for central area*/
+  min-height: 600px; /* Min height for central area*/
+  margin: 0 auto; /*Centre main*/
+  padding: 0 10px;
+}
+
+/* Set up navigation menu list */
+ul.menulist {
+  list-style-type: none; /* Remove bullets*/
+  /* Sets all margins to 0 but top one especially to 0 so sits top browser window */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #8a0707;
+  min-width: 100px; /* Set minimum size of list set as blocks below */
+}
+
+li.menulist {
+  float: left;
+}
+
+li.menulist a,
+.dropbtn {
+  display: inline-block; /* Displays list as block*/
+  color: #ffffff;
+  font-weight: bold; /* Set menu font bold */
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none; /* Removes hyperlink underline*/
+  min-width: 100px; /*Set minimum size of list and anchor set as blocks*/
+}
+
+li.menulist a:hover,
+.dropdown:hover .dropbtn {
+  background-color: #a13737;
+}
+
+/* Format all p elements as required */
+p {
+  text-align: justify;
+  padding: 0 15px;
+}
+
+img {
+  margin: 0;
+  padding: 0;
+  display: block; /* Ensures there's no inline space */
+}
