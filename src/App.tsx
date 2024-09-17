@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import CarouselCard from "./components/CarouselCard";
 import { Property } from "./ts/Property";
+import Footer from "./components/Footer";
 
 function App() {
   //converts json to objects
@@ -48,6 +49,7 @@ function App() {
             "Pozemky",
           ]}
         ></ListGroup>
+        <Footer />
       </Stack>
     </Container>
   );
