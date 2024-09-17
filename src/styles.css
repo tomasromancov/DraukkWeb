@@ -23,6 +23,7 @@ ul.menulist {
   overflow: hidden;
   background-color: #8a0707;
   min-width: 100px; /* Set minimum size of list set as blocks below */
+  border-radius: 15px;
 }
 
 li.menulist {
