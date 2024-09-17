@@ -1,6 +1,6 @@
 import { Box, Paper, Stack, Typography } from "@mui/material";
 import house1 from "../assets/house1.jpg";
-import { Property } from "../ts/property";
+import { Property } from "../ts/Property";
 
 interface Props {
   card?: Property;
@@ -18,7 +18,6 @@ function CarouselCard({ card }: Props) {
         "&:hover": {
           height: "220px",
           width: "198px",
-          "& .text": { color: "white" },
         },
         transition: "width 0.3s ease-out, height 0.3s ease-out",
       }}

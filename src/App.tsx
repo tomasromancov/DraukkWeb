@@ -1,11 +1,11 @@
-import { Container, Stack } from "@mui/material";
+import { Container, Stack, Typography } from "@mui/material";
 import ListGroup from "./components/ListGroup";
 import Navbar from "./components/Navbar";
 import Carousel from "./components/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import CarouselCard from "./components/CarouselCard";
-import { Property } from "./ts/property";
+import { Property } from "./ts/Property";
 
 function App() {
   //converts json to objects
@@ -38,6 +38,16 @@ function App() {
             house4,
           ]}
         />
+        <Typography variant="h1">Prodej</Typography>
+        <ListGroup
+          items={[
+            "Byty",
+            "Rodinne Domy",
+            "Rekreacni Objekty",
+            "Komerecni",
+            "Pozemky",
+          ]}
+        ></ListGroup>
       </Stack>
     </Container>
   );

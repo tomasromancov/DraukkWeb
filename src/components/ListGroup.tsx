@@ -1,12 +1,36 @@
-function ListGroup() {
+import { Stack, Typography, Box } from "@mui/material";
+
+interface Props {
+  items: String[];
+}
+
+function ListGroup({ items }: Props) {
   return (
-    <ul className="list-group">
-      <li className="list-group-item">An item</li>
-      <li className="list-group-item">A second item</li>
-      <li className="list-group-item">A third item</li>
-      <li className="list-group-item">A fourth item</li>
-      <li className="list-group-item">And a fifth one</li>
-    </ul>
+    <Stack
+      direction="row"
+      justifyContent="space-between"
+      sx={{ width: "100%" }}
+    >
+      {items.map((item, index) => (
+        <Box
+          sx={{
+            backgroundColor: "red",
+            width: "100%",
+          }}
+        >
+          <Typography
+            sx={{
+              width: "100%",
+              justifyContent: "center",
+              display: "flex",
+              border: "black 2px",
+            }}
+          >
+            {item}
+          </Typography>
+        </Box>
+      ))}
+    </Stack>
   );
 }
 
