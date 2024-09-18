@@ -1,6 +1,11 @@
 import { Fragment } from "react";
+import { Box, Stack } from "@mui/material";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
 import "../styles.css";
 import Navbarimage from "../assets/navbarimage.jpg";
+import SvgButton from "./SvgButton";
+import { Colors } from "../ts/Colors";
 
 function Navbar() {
   const navItems = new Map<string, string>([
@@ -16,7 +21,7 @@ function Navbar() {
     <Fragment>
       <nav>
         {/*Navbar image div*/}
-        <div
+        <Box
           style={{
             position: "relative",
             display: "inline-block",
@@ -36,7 +41,7 @@ function Navbar() {
             }}
           />
           {/* Text over navbar image */}
-          <div
+          <Box
             style={{
               position: "absolute",
               top: "50%",
@@ -50,8 +55,32 @@ function Navbar() {
             }}
           >
             garance - solidnost - jistota Váš partner již 30 let
-          </div>
-        </div>
+          </Box>
+          {/*Social media links */}
+          <Box
+            style={{
+              position: "absolute",
+              top: "10%",
+              right: "2%",
+              //transform: "translate(-50%, -50%)",
+            }}
+          >
+            <Stack direction="row" spacing={1}>
+              <SvgButton
+                component={InstagramIcon}
+                backgroundColor={Colors.red}
+                hoverColor="white"
+                svgColor="white"
+              />
+              <SvgButton
+                component={FacebookIcon}
+                backgroundColor={Colors.red}
+                hoverColor="white"
+                svgColor="white"
+              />
+            </Stack>
+          </Box>
+        </Box>
         {/* Navbar items generated using Navbar Map*/}
         <ul className="menulist">
           {Array.from(navItems, ([item, link]) => (

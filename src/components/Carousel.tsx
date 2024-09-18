@@ -6,7 +6,7 @@ import CarouselCard from "./CarouselCard";
 import { Stack, SvgIcon } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import { Property } from "../ts/property";
+import { Property } from "../ts/Property";
 
 interface Props {
   cards: Property[];
