@@ -10,6 +10,7 @@ interface Props {
   backgroundColor: string;
   hoverColor: string;
   svgColor: string;
+  onClick: () => void;
 }
 
 function SvgButton(props: Props) {
@@ -34,6 +35,7 @@ function SvgButton(props: Props) {
       }}
       onMouseEnter={() => setIconColor(props.backgroundColor)}
       onMouseLeave={() => setIconColor(props.svgColor)}
+      onClick={props.onClick}
     >
       <SvgIcon
         viewBox={props.viewBox}

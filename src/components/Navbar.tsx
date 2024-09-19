@@ -17,6 +17,10 @@ function Navbar() {
     ["PODMÍNKY", ""],
   ]);
 
+  const openInstagram = () => {
+    window.open("https://www.instagram.com/saintjavelin/");
+  };
+
   return (
     <Fragment>
       <nav>
@@ -71,12 +75,16 @@ function Navbar() {
                 backgroundColor={Colors.red}
                 hoverColor="white"
                 svgColor="white"
+                onClick={() => {
+                  window.open("https://www.instagram.com/saintjavelin/");
+                }}
               />
               <SvgButton
                 component={FacebookIcon}
                 backgroundColor={Colors.red}
                 hoverColor="white"
                 svgColor="white"
+                onClick={openInstagram}
               />
             </Stack>
           </Box>
