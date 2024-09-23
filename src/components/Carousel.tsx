@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 //import "../index.css"; // Import custom CSS
 import CarouselCard from "./CarouselCard";
-import { Stack, SvgIcon } from "@mui/material";
+import { Box, Stack, SvgIcon } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import { Property } from "../ts/Property";
@@ -71,23 +71,24 @@ function Carousel({ cards }: Props) {
       >
         {/**Cards are sorted into lists where each list will get displayed at a time in a single carousel slide */}
         {sortCards(cards).map((cardList, index) => (
-          <div
+          <Box
             key={index}
             className={`carousel-item ${index === 0 ? "active" : ""}`}
+            sx={{ width: "100%" }}
           >
             <Stack
               direction="row"
-              justifyContent="center"
+              justifyContent="space-between"
               alignItems="center"
               spacing={{ xs: 1, sm: 2, md: 4 }}
-              sx={{ width: "100%", height: "100%", py: "30px" }}
+              sx={{ width: "80%", height: "100%", py: "30px", margin: "auto" }}
             >
               {}
               {cardList.map((card) => (
                 <CarouselCard key={card.name + index} card={card} />
               ))}
             </Stack>
-          </div>
+          </Box>
         ))}
       </div>
 
