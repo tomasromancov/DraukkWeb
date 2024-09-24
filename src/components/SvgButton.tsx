@@ -10,7 +10,7 @@ interface Props {
   backgroundColor: string;
   hoverColor: string;
   svgColor: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 function SvgButton(props: Props) {

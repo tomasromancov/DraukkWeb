@@ -4,11 +4,9 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
-  IconButton,
   Stack,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-//import { ICONS } from "../../imports/images/icons";
 
 type Props = {
   title: string | JSX.Element;
@@ -74,8 +72,8 @@ export default function Popup(props: Props) {
         sx={{
           paddingLeft: "74px",
           paddingRight: "74px",
-          paddingBottom: "50px",
-          paddingTop: "28px",
+          paddingBottom: "40px",
+          paddingTop: "12px",
         }}
       >
         {action}

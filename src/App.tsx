@@ -9,13 +9,15 @@ import { Property } from "./ts/Property";
 import Footer from "./components/Footer";
 import Popup from "./components/Popup";
 import house1Img from "./assets/house1.jpg";
+import house2Img from "./assets/house2.webp";
+import house3Img from "./assets/house3.jpg";
 
 function App() {
   //converts json to objects
   let house = new Property("House 1", "Vodickova", 100000, house1Img);
-  let house2 = new Property("House 2", "Jeremiasova", 150000);
+  let house2 = new Property("House 2", "Jeremiasova", 150000, house2Img);
   let house3 = new Property("House 3", "Lidicka", 235000, house1Img);
-  let house4 = new Property("House 4", "Gercenova", 123000);
+  let house4 = new Property("House 4", "Gercenova", 123000, house3Img);
 
   return (
     <Container>

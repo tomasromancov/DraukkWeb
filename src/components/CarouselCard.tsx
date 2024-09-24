@@ -3,7 +3,8 @@ import house1 from "../assets/house1.jpg";
 import { Property } from "../ts/Property";
 import React, { Fragment } from "react";
 import Popup from "./Popup";
-import InstagramIcon from "@mui/icons-material/Instagram";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { Colors } from "../ts/Colors";
 import SvgButton from "./SvgButton";
 
@@ -75,15 +76,23 @@ function CarouselCard({ card }: Props) {
           fullWidth={true}
           action={
             <Stack direction="row">
-              <SvgButton
-                component={InstagramIcon}
-                backgroundColor={Colors.red}
-                hoverColor="white"
-                svgColor="white"
-                onClick={() => {
-                  window.open("https://www.instagram.com/saintjavelin/");
-                }}
-              />
+              <Stack direction="row">
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "flex-end",
+                  }}
+                >
+                  <Typography>Prohlídnout</Typography>
+                </Box>
+                <SvgButton
+                  component={ArrowForwardIcon}
+                  backgroundColor={Colors.red}
+                  hoverColor="white"
+                  svgColor="white"
+                />
+              </Stack>
             </Stack>
           }
         >
@@ -125,13 +134,22 @@ function CarouselCard({ card }: Props) {
                 <Typography>{"Makler: "}</Typography>
                 <Typography>{"Jan Jedlicka"}</Typography>
               </Stack>
+              <Stack direction="column" alignItems="center" spacing={1}>
+                <Typography>{"Zobrazit vice"}</Typography>
+                <SvgButton
+                  component={ArrowDownwardIcon}
+                  backgroundColor={Colors.red}
+                  hoverColor="white"
+                  svgColor="white"
+                />
+              </Stack>
             </Stack>
             <Box
               justifyContent="flex-start"
               alignItems="center"
               sx={{
                 height: "50%",
-                width: "60%",
+                width: "55%",
                 my: "8px",
                 borderRadius: "12px",
                 overflow: "hidden",
