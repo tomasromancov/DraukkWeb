@@ -23,43 +23,37 @@ function CarouselCard({ card }: Props) {
           bgcolor: "#DDDDDD",
           borderRadius: "12px",
           width: "180px",
-          height: "200px",
+          height: "220px",
           "&:hover": {
-            height: "220px",
+            height: "240px",
             width: "198px",
           },
           transition: "width 0.3s ease-out, height 0.3s ease-out",
         }}
         onClick={() => setOpenPopupInfo(true)}
       >
-        <Stack>
+        <Stack sx={{ height: "100%" }}>
           <Box
+            justifyContent="flex-start"
+            alignItems="center"
             sx={{
-              display: "flex", // Flexbox to center the Box
-              justifyContent: "center", // Horizontally center the image Box
+              height: "50%",
+              width: "88%",
+              my: "8px",
+              mx: "auto",
+              borderRadius: "12px",
+              overflow: "hidden",
             }}
           >
-            <Box
-              justifyContent="flex-start"
-              alignItems="center"
-              sx={{
-                height: "50%",
-                width: "88%",
-                my: "8px",
-                borderRadius: "12px",
-                overflow: "hidden",
+            <img
+              src={card.thumbnail}
+              alt="card thumbnail"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
               }}
-            >
-              <img
-                src={card.thumbnail}
-                alt="card thumbnail"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
-              />
-            </Box>
+            />
           </Box>
           <Typography sx={{ fontWeight: "bold", fontSize: "18px" }}>
             {card ? card.name : "house"}
