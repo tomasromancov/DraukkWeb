@@ -80,7 +80,6 @@ function Carousel({ cards }: Props) {
               direction="row"
               justifyContent="space-between"
               alignItems="center"
-              spacing={{ xs: 1, sm: 2, md: 4 }}
               sx={{ width: "80%", height: "100%", py: "30px", margin: "auto" }}
             >
               {}
