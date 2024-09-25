@@ -1,4 +1,4 @@
-import { Container, Stack, Typography } from "@mui/material";
+import { Box, Container, Stack, Typography } from "@mui/material";
 import ListGroup from "./components/ListGroup";
 import Navbar from "./components/Navbar";
 import Carousel from "./components/Carousel";
@@ -44,15 +44,17 @@ function App() {
           ]}
         />
         <Typography variant="h1">Prodej</Typography>
-        <ListGroup
-          items={[
-            "Byty",
-            "Rodinne Domy",
-            "Rekreacni Objekty",
-            "Komerecni",
-            "Pozemky",
-          ]}
-        ></ListGroup>
+        <Box sx={{ mx: "auto", my: "22px", width: "80%" }}>
+          <ListGroup
+            items={[
+              "Byty",
+              "Rodinne Domy",
+              "Rekreacni Objekty",
+              "Komerecni",
+              "Pozemky",
+            ]}
+          />
+        </Box>
         <Footer />
       </Stack>
     </Container>

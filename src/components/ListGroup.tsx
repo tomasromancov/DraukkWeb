@@ -1,4 +1,5 @@
 import { Stack, Typography, Box } from "@mui/material";
+import { Colors } from "../ts/Colors";
 
 interface Props {
   items: String[];
@@ -6,31 +7,46 @@ interface Props {
 
 function ListGroup({ items }: Props) {
   return (
-    <Stack
-      direction="row"
-      justifyContent="space-between"
-      sx={{ width: "100%" }}
+    <Box
+      sx={{
+        width: "100 %",
+        borderRadius: "12px",
+        overflow: "hidden",
+      }}
     >
-      {items.map((item, index) => (
-        <Box
-          sx={{
-            backgroundColor: "red",
-            width: "100%",
-          }}
-        >
-          <Typography
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        sx={{ width: "100%" }}
+      >
+        {items.map((item, index) => (
+          <Box
+            key={index}
             sx={{
+              backgroundColor: Colors.red,
               width: "100%",
-              justifyContent: "center",
-              display: "flex",
-              border: "black 2px",
+              height: "60px",
+              border: "solid 1px black",
+              alignContent: "center",
+              ":hover": {
+                backgroundColor: Colors.redHover,
+              },
             }}
           >
-            {item}
-          </Typography>
-        </Box>
-      ))}
-    </Stack>
+            <Typography
+              sx={{
+                width: "100%",
+                justifyContent: "center",
+                display: "flex",
+                color: "white",
+              }}
+            >
+              {item}
+            </Typography>
+          </Box>
+        ))}
+      </Stack>
+    </Box>
   );
 }
 
