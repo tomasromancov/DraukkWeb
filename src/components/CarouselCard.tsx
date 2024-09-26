@@ -7,6 +7,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { Colors } from "../ts/Colors";
 import SvgButton from "./SvgButton";
+import PropertyCarousel from "./PropertyCarousel";
 
 interface Props {
   card: Property;
@@ -138,27 +139,43 @@ function CarouselCard({ card }: Props) {
                 />
               </Stack>
             </Stack>
-            <Box
-              justifyContent="flex-start"
-              alignItems="center"
-              sx={{
-                height: "50%",
-                width: "55%",
-                my: "8px",
-                borderRadius: "12px",
-                overflow: "hidden",
-              }}
-            >
-              <img
-                src={card.thumbnail}
-                alt="card thumbnail"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
+            {card.images ? (
+              <Box
+                justifyContent="flex-start"
+                alignItems="center"
+                sx={{
+                  height: "50%",
+                  width: "55%",
+                  my: "8px",
+                  borderRadius: "12px",
+                  overflow: "hidden",
                 }}
-              />
-            </Box>
+              >
+                <PropertyCarousel images={card.images} />
+              </Box>
+            ) : (
+              <Box
+                justifyContent="flex-start"
+                alignItems="center"
+                sx={{
+                  height: "50%",
+                  width: "55%",
+                  my: "8px",
+                  borderRadius: "12px",
+                  overflow: "hidden",
+                }}
+              >
+                <img
+                  src={card.thumbnail}
+                  alt="card thumbnail"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+              </Box>
+            )}
           </Stack>
         </Popup>
       )}
