@@ -47,8 +47,9 @@ function App() {
             house3,
             house4,
           ]}
+          title="Nově Přidané"
         />
-        <Typography variant="h1">Prodej</Typography>
+        <Typography sx={{ fontSize: "36px" }}>Prodej</Typography>
         <Box sx={{ mx: "auto", my: "22px", width: "80%" }}>
           <ListGroup
             items={[
