@@ -5,9 +5,12 @@ import React, { Fragment } from "react";
 import Popup from "./Popup";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { Colors } from "../ts/Colors";
 import SvgButton from "./SvgButton";
 import PropertyCarousel from "./PropertyCarousel";
+import PropertyInfo from "./PropertyInfo";
+import blankProfile from "../assets/blankProfile.webp";
 
 interface Props {
   card: Property;
@@ -15,6 +18,7 @@ interface Props {
 
 function CarouselCard({ card }: Props) {
   const [openPopupInfo, setOpenPopupInfo] = React.useState(false);
+  const [moreInfo, setMoreInfo] = React.useState(false);
 
   return (
     <Fragment>
@@ -99,54 +103,82 @@ function CarouselCard({ card }: Props) {
                 my: "8px",
               }}
             >
-              <Stack direction="row" justifyContent="space-between">
-                <Typography>{"Address: "}</Typography>
-                <Typography>{card.address}</Typography>
-              </Stack>
-              <Stack direction="row" justifyContent="space-between">
-                <Typography>{"Price: "}</Typography>
-                <Typography>{card.cost + " Kč"}</Typography>
-              </Stack>
+              <Typography sx={{ fontSize: "26px", fontWeight: "bold" }}>
+                Údaje
+              </Typography>
+              <PropertyInfo category="Adresa:" info={card.address} />
+              <PropertyInfo category="Cena: " info={card.cost + "Kč"} />
               <Divider sx={{ backgroundColor: "#000000", my: "20px" }} />
-              <Stack direction="row" justifyContent="space-between">
-                <Typography>{"Area: "}</Typography>
-                <Typography>{"259 m^2"}</Typography>
-              </Stack>
-              <Stack direction="row" justifyContent="space-between">
-                <Typography>{"Rooms: "}</Typography>
-                <Typography>{"7"}</Typography>
-              </Stack>
-              <Stack direction="row" justifyContent="space-between">
-                <Typography>{"Insulation: "}</Typography>
-                <Typography>{"Foam"}</Typography>
-              </Stack>
-              <Stack direction="row" justifyContent="space-between">
-                <Typography>{"Balkony: "}</Typography>
-                <Typography>{"No"}</Typography>
-              </Stack>
-              <Divider sx={{ backgroundColor: "#000000", my: "20px" }} />
-              <Stack direction="row" justifyContent="space-between">
-                <Typography>{"Makler: "}</Typography>
-                <Typography>{"Jan Jedlicka"}</Typography>
-              </Stack>
+              <PropertyInfo category="Plocha:" info="259 m^2" />
+              <PropertyInfo category="Pokoje:" info="7" />
+              <PropertyInfo category="Insulace:" info="Pěnová" />
+              <PropertyInfo category="Balkón:" info="ano" />
+              {/* Box with additional info */}
+              <Box
+                sx={{
+                  height: moreInfo ? "100%" : "0px",
+                  overflow: "hidden",
+                  transition: "1s",
+                }}
+              >
+                <Divider sx={{ backgroundColor: "#000000", my: "20px" }} />
+                <Typography sx={{ fontSize: "26px", fontWeight: "bold" }}>
+                  Makléř
+                </Typography>
+                <PropertyInfo category="Jméno:" info={"Jan Jedlička"} />
+                <PropertyInfo
+                  category="Email:"
+                  info={"jan.jedlička@gmail.com"}
+                />
+                <PropertyInfo category="Telefon:" info={"665 190 695"} />
+                <Box
+                  justifyContent="flex-start"
+                  alignItems="center"
+                  sx={{
+                    height: "50%",
+                    width: "50%",
+                    my: "8px",
+                    mx: "auto",
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                  }}
+                >
+                  <img
+                    src={blankProfile}
+                    alt="profile picture"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </Box>
+              </Box>
+
+              {/* Expand button for more information */}
               <Stack direction="column" alignItems="center" spacing={1}>
-                <Typography>{"Zobrazit vice"}</Typography>
+                <Typography>
+                  {moreInfo ? "Zobrazit méně" : "Zobrazit více"}
+                </Typography>
                 <SvgButton
-                  component={ArrowDownwardIcon}
+                  component={moreInfo ? ArrowUpwardIcon : ArrowDownwardIcon}
                   backgroundColor={Colors.red}
                   hoverColor="white"
                   svgColor="white"
+                  onClick={() => setMoreInfo(!moreInfo)}
+                  resetOnClick={true}
                 />
               </Stack>
             </Stack>
+            {/*If property has any associated images display them in a carousel,
+            otherwise display the thumbnail only. */}
             {card.images ? (
               <Box
                 justifyContent="flex-start"
                 alignItems="center"
                 sx={{
-                  height: "50%",
                   width: "55%",
-                  my: "8px",
+                  marginTop: "8px",
                   borderRadius: "12px",
                   overflow: "hidden",
                 }}

@@ -11,10 +11,12 @@ interface Props {
   hoverColor: string;
   svgColor: string;
   onClick?: () => void;
+  resetOnClick?: boolean;
 }
 
 function SvgButton(props: Props) {
   const [iconColor, setIconColor] = React.useState(props.svgColor);
+  const [isHovered, setIsHovered] = React.useState(false);
 
   return (
     <Box
@@ -25,23 +27,36 @@ function SvgButton(props: Props) {
         maxWidth: "40px",
         minHeight: "40px",
         maxHeight: "40px",
-        background: Colors.red,
+        background: isHovered ? props.hoverColor : props.backgroundColor, // Set background color based on hover state
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        ":hover": {
-          background: props.hoverColor,
-        },
+        transition: "background 0.3s ease", // Smooth transition when the background color change
       }}
-      onMouseEnter={() => setIconColor(props.backgroundColor)}
-      onMouseLeave={() => setIconColor(props.svgColor)}
-      onClick={props.onClick}
+      onMouseEnter={() => {
+        setIsHovered(true);
+        setIconColor(props.backgroundColor);
+      }}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setIconColor(props.svgColor);
+      }}
+      onClick={() => {
+        if (props.onClick) props.onClick();
+
+        // Only reset hover state if the button moves (indicated by the resetOnClick prop)
+        if (props.resetOnClick) {
+          setIsHovered(false);
+          setIconColor(props.svgColor);
+        }
+      }}
     >
       <SvgIcon
         viewBox={props.viewBox}
         component={props.component}
         sx={{
           fill: iconColor,
+          transition: "fill 0.3s ease", // Smooth transition for icon color
         }}
       ></SvgIcon>
     </Box>
