@@ -21,10 +21,11 @@ body {
 
 /* No margin or padding. Choose font-family */
 body,
-nav {
+nav,
+footer {
   margin: 0; /* Sets all margins to 0 but top one especially to 0 for nav so sits top browser window */
   padding: 0;
-  font-family: "Noto Sans", Helvetica, sans-serif;
+  font-family: "Roboto", Helvetica, sans-serif;
 }
 
 /* Create central main section */

@@ -96,27 +96,6 @@ function Navbar() {
               <a href={link}>{item}</a>
             </li>
           ))}
-
-          {/*Start if search bar end of menu list*/}
-          <li id="search">
-            <form
-              method="get"
-              action="http://www.google.com/search"
-              target="_blank"
-            >
-              <div>
-                <input
-                  type="text"
-                  name="q"
-                  size={20}
-                  maxLength={150}
-                  defaultValue=""
-                />
-                <input type="submit" defaultValue="Search" />
-              </div>
-            </form>
-          </li>
-          {/*End of search bar and end of menu list*/}
         </ul>
       </nav>
       {/*End of navigation bar*/}
