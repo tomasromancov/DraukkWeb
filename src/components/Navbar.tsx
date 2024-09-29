@@ -1,11 +1,12 @@
 import { Fragment } from "react";
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, SvgIcon } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import "../styles.css";
 import Navbarimage from "../assets/navbarimage.jpg";
 import SvgButton from "./SvgButton";
 import { Colors } from "../ts/Colors";
+import HomeIcon from "@mui/icons-material/Home";
 
 function Navbar() {
   const navItems = new Map<string, string>([
@@ -91,6 +92,14 @@ function Navbar() {
         </Box>
         {/* Navbar items generated using Navbar Map*/}
         <ul className="menulist">
+          <li className="menulist">
+            <a style={{ paddingBottom: "10px", paddingTop: "10px" }}>
+              <SvgIcon
+                component={HomeIcon}
+                sx={{ fontSize: "32px", fill: "#FFFFFF" }}
+              />
+            </a>
+          </li>
           {Array.from(navItems, ([item, link]) => (
             <li key={item} className="menulist">
               <a href={link}>{item}</a>
