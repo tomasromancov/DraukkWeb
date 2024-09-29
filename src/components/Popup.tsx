@@ -31,17 +31,10 @@ export default function Popup(props: Props) {
   return (
     <Dialog
       open={openPopup}
-      sx={{ margin: "0 auto", minWidth: "725px" }}
+      sx={{ margin: "0 auto", minWidth: "725px", height: "100%" }}
       maxWidth="lg"
       fullWidth={fullWidth}
       onClose={() => setOpenPopup(false)}
-      PaperProps={{
-        sx: {
-          // Ensure the scrollbar overlays content
-          scrollbarGutter: "stable",
-          overflow: "overlay", // This allows the scrollbar to overlay the content
-        },
-      }}
     >
       <DialogTitle
         sx={{
@@ -74,6 +67,9 @@ export default function Popup(props: Props) {
           paddingRight: "27px",
           paddingBottom: "0px",
           marginBottom: "20px",
+          // Ensure the scrollbar overlays content
+          scrollbarGutter: "stable",
+          overflow: "overlay", // This allows the scrollbar to overlay the content
         }}
       >
         {children}

@@ -19,7 +19,7 @@ function PropertyCarousel({ images }: Props) {
         <SplideTrack style={{ height: "100%" }}>
           {images.map((image, index) => (
             <>
-              <SplideSlide>
+              <SplideSlide key={index}>
                 <Box
                   sx={{
                     width: "100%",

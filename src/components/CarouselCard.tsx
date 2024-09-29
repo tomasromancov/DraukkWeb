@@ -19,6 +19,7 @@ interface Props {
 function CarouselCard({ card }: Props) {
   const [openPopupInfo, setOpenPopupInfo] = React.useState(false);
   const [moreInfo, setMoreInfo] = React.useState(false);
+  // const [cardHover, setCardHover] = React.useState(false);
 
   const contentRef = useRef<HTMLDivElement | null>(null);
 
@@ -42,12 +43,14 @@ function CarouselCard({ card }: Props) {
           width: "180px",
           height: "220px",
           "&:hover": {
-            height: "240px",
-            width: "198px",
+            height: "241px",
+            width: "201px",
           },
           transition: "width 0.3s ease-out, height 0.3s ease-out",
         }}
         onClick={() => setOpenPopupInfo(true)}
+        // onMouseEnter={() => setCardHover(true)}
+        // onMouseLeave={() => setCardHover(false)}
       >
         <Stack sx={{ height: "100%" }}>
           <Box
@@ -72,11 +75,35 @@ function CarouselCard({ card }: Props) {
               }}
             />
           </Box>
-          <Typography sx={{ fontWeight: "bold", fontSize: "18px" }}>
+          <Typography
+            sx={{
+              fontWeight: "bold",
+              // fontSize: cardHover ? "21px" : "18px",
+              // transition: "font-size 0.3s ease-out",
+            }}
+          >
             {card ? card.name : "house"}
           </Typography>
-          <Typography>{card.address}</Typography>
-          <Typography>{card.cost}kc</Typography>
+          <Typography
+            sx={
+              {
+                // fontSize: cardHover ? "17px" : "14px",
+                // transition: "font-size 0.3s ease-out",
+              }
+            }
+          >
+            {card.address}
+          </Typography>
+          <Typography
+            sx={
+              {
+                // fontSize: cardHover ? "17px" : "14px",
+                // transition: "font-size 0.3s ease-out",
+              }
+            }
+          >
+            {card.cost}kc
+          </Typography>
         </Stack>
       </Paper>
       {openPopupInfo && (
