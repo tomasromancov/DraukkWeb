@@ -13,7 +13,7 @@ function PropertyCarousel({ images }: Props) {
     <Splide
       hasTrack={false}
       aria-labell="Splide Carousel"
-      options={{ rewind: true }}
+      options={{ type: "loop", autoplay: true, interval: 4000 }}
     >
       <Box>
         <SplideTrack style={{ height: "100%" }}>

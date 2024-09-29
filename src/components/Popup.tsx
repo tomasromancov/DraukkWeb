@@ -40,7 +40,7 @@ export default function Popup(props: Props) {
         sx={{
           paddingLeft: "60px",
           paddingRight: "39px",
-          paddingTop: "70px",
+          paddingTop: "55px",
           paddingBottom: "36px",
         }}
       >

@@ -43,7 +43,7 @@ function RealtorGalery() {
           </Box>
           <a
             style={{ paddingLeft: "15px", paddingRight: "15px" }}
-            href="https://www.instagram.com/saintjavelin/"
+            href="mailto:jan.jedlicka@gmail.com?Subject=Further%20Information"
           >
             {"jan.jedlicka@gmail.com"}
           </a>
