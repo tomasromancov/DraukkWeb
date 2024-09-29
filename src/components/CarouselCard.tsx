@@ -78,6 +78,7 @@ function CarouselCard({ card }: Props) {
           <Typography
             sx={{
               fontWeight: "bold",
+              fontSize: "20px",
               // fontSize: cardHover ? "21px" : "18px",
               // transition: "font-size 0.3s ease-out",
             }}

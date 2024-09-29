@@ -11,6 +11,7 @@ import Popup from "./components/Popup";
 import house1Img from "./assets/house1.jpg";
 import house2Img from "./assets/house2.webp";
 import house3Img from "./assets/house3.jpg";
+import RealtorGalery from "./components/RealtorGalery";
 
 function App() {
   //converts json to objects
@@ -61,6 +62,8 @@ function App() {
             ]}
           />
         </Box>
+        <Typography sx={{ fontSize: "36px" }}>Makléřy</Typography>
+        <RealtorGalery />
         <Footer />
       </Stack>
     </Container>
