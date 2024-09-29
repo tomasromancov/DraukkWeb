@@ -12,6 +12,7 @@ import house1Img from "./assets/house1.jpg";
 import house2Img from "./assets/house2.webp";
 import house3Img from "./assets/house3.jpg";
 import RealtorGalery from "./components/RealtorGalery";
+import PropertyCarousel from "./components/PropertyCarousel";
 
 function App() {
   //converts json to objects
@@ -64,6 +65,10 @@ function App() {
         </Box>
         <Typography sx={{ fontSize: "36px" }}>Makléřy</Typography>
         <RealtorGalery />
+        <Typography sx={{ fontSize: "36px" }}>Dříve Prodané</Typography>
+        <Box sx={{ width: "80%", mx: "auto", my: "22px" }}>
+          <PropertyCarousel images={house.images!} />
+        </Box>
         <Footer />
       </Stack>
     </Container>

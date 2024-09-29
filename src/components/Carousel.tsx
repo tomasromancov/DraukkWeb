@@ -115,7 +115,7 @@ function Carousel({ cards, title }: Props) {
           data-bs-slide="prev"
         >
           <SvgIcon
-            sx={{ fontSize: "large", fill: "#000000" }}
+            sx={{ fontSize: "40px", fill: "#000000" }}
             component={NavigateBeforeIcon}
           ></SvgIcon>
         </button>
@@ -128,7 +128,7 @@ function Carousel({ cards, title }: Props) {
           data-bs-slide="next"
         >
           <SvgIcon
-            sx={{ fontSize: "large", fill: "#000000" }}
+            sx={{ fontSize: "40px", fill: "#000000" }}
             component={NavigateNextIcon}
           ></SvgIcon>
         </button>

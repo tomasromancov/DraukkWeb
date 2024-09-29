@@ -25,7 +25,6 @@ function CarouselCard({ card }: Props) {
 
   const scrollToTop = () => {
     if (contentRef.current) {
-      console.log("scrolling to top");
       contentRef.current.scrollTo({
         top: 0,
         behavior: "smooth", // Smooth scrolling effect
@@ -109,7 +108,11 @@ function CarouselCard({ card }: Props) {
       </Paper>
       {openPopupInfo && (
         <Popup
-          title={card ? card.name : "title"}
+          title={
+            <Typography sx={{ fontSize: "30px", fontWeight: "bold" }}>
+              {card ? card.name : "title"}
+            </Typography>
+          }
           openPopup={openPopupInfo}
           setOpenPopup={setOpenPopupInfo}
           fullWidth={true}
