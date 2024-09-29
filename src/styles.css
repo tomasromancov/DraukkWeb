@@ -1,3 +1,24 @@
+html,
+body {
+  /*scrollbar styling*/
+  /* width */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #ececec;
+    border-radius: 5px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #d6d6d6;
+    border-radius: 5px;
+  }
+}
+
 /* No margin or padding. Choose font-family */
 body,
 nav {

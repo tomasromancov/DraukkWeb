@@ -1,4 +1,4 @@
-import React from "react";
+import React, { RefObject } from "react";
 import {
   Dialog,
   DialogActions,
@@ -15,6 +15,7 @@ type Props = {
   openPopup: boolean;
   setOpenPopup: (isOpen: boolean) => void;
   fullWidth?: boolean;
+  dialogRef?: RefObject<HTMLDivElement>;
 };
 
 export default function Popup(props: Props) {
@@ -33,6 +34,14 @@ export default function Popup(props: Props) {
       sx={{ margin: "0 auto", minWidth: "725px" }}
       maxWidth="lg"
       fullWidth={fullWidth}
+      onClose={() => setOpenPopup(false)}
+      PaperProps={{
+        sx: {
+          // Ensure the scrollbar overlays content
+          scrollbarGutter: "stable",
+          overflow: "overlay", // This allows the scrollbar to overlay the content
+        },
+      }}
     >
       <DialogTitle
         sx={{
@@ -57,6 +66,7 @@ export default function Popup(props: Props) {
         </Stack>
       </DialogTitle>
       <DialogContent
+        ref={props.dialogRef}
         sx={{
           overflowY: "overlay",
           paddingLeft: "64px",

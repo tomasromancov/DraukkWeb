@@ -1,7 +1,7 @@
 import { Box, Divider, Paper, Stack, Typography } from "@mui/material";
 import house1 from "../assets/house1.jpg";
 import { Property } from "../ts/Property";
-import React, { Fragment } from "react";
+import React, { Fragment, useRef } from "react";
 import Popup from "./Popup";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
@@ -19,6 +19,18 @@ interface Props {
 function CarouselCard({ card }: Props) {
   const [openPopupInfo, setOpenPopupInfo] = React.useState(false);
   const [moreInfo, setMoreInfo] = React.useState(false);
+
+  const contentRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollToTop = () => {
+    if (contentRef.current) {
+      console.log("scrolling to top");
+      contentRef.current.scrollTo({
+        top: 0,
+        behavior: "smooth", // Smooth scrolling effect
+      });
+    }
+  };
 
   return (
     <Fragment>
@@ -73,6 +85,7 @@ function CarouselCard({ card }: Props) {
           openPopup={openPopupInfo}
           setOpenPopup={setOpenPopupInfo}
           fullWidth={true}
+          dialogRef={contentRef}
           action={
             <Stack direction="row">
               <Stack direction="row">
@@ -165,7 +178,12 @@ function CarouselCard({ card }: Props) {
                   backgroundColor={Colors.red}
                   hoverColor="white"
                   svgColor="white"
-                  onClick={() => setMoreInfo(!moreInfo)}
+                  onClick={() => {
+                    setMoreInfo(!moreInfo);
+                    if (moreInfo) {
+                      scrollToTop();
+                    }
+                  }}
                   resetOnClick={true}
                 />
               </Stack>
