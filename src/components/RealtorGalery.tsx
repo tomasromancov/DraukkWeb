@@ -47,7 +47,7 @@ function RealtorGalery() {
           >
             {"jan.jedlicka@gmail.com"}
           </a>
-          <Typography>{"665 190 695"}</Typography>
+          <Typography>{"+420 665 190 695"}</Typography>
         </Paper>
       ))}
     </Stack>

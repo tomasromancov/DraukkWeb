@@ -13,6 +13,14 @@ import house2Img from "./assets/house2.webp";
 import house3Img from "./assets/house3.jpg";
 import RealtorGalery from "./components/RealtorGalery";
 import PropertyCarousel from "./components/PropertyCarousel";
+import ApartmentIcon from "@mui/icons-material/Apartment";
+import HouseIcon from "@mui/icons-material/House";
+import FenceIcon from "@mui/icons-material/Fence";
+import DeckIcon from "@mui/icons-material/Deck";
+import FactoryIcon from "@mui/icons-material/Factory";
+import LocationCityIcon from "@mui/icons-material/LocationCity";
+import HomeWorkIcon from "@mui/icons-material/HomeWork";
+import Section from "./components/Section";
 
 function App() {
   //converts json to objects
@@ -28,47 +36,66 @@ function App() {
 
   return (
     <Container>
-      <Stack direction="column" height="100%" width="100%">
+      <Stack direction="column" sx={{ height: "100%", width: "100%" }}>
         <Navbar />
-        <Carousel
-          cards={[
-            house,
-            house2,
-            house3,
-            house4,
-            house,
-            house2,
-            house3,
-            house4,
-            house,
-            house2,
-            house3,
-            house4,
-            house,
-            house2,
-            house3,
-            house4,
-          ]}
-          title="Nově Přidané"
-        />
-        <Typography sx={{ fontSize: "36px" }}>Prodej</Typography>
-        <Box sx={{ mx: "auto", my: "22px", width: "80%" }}>
-          <ListGroup
-            items={[
-              "Byty",
-              "Rodinne Domy",
-              "Rekreacni Objekty",
-              "Komerecni",
-              "Pozemky",
+        <Section title="Nově Přidané">
+          <Carousel
+            cards={[
+              house,
+              house2,
+              house3,
+              house4,
+              house,
+              house2,
+              house3,
+              house4,
+              house,
+              house2,
+              house3,
+              house4,
+              house,
+              house2,
+              house3,
+              house4,
             ]}
           />
-        </Box>
-        <Typography sx={{ fontSize: "36px" }}>Makléřy</Typography>
-        <RealtorGalery />
-        <Typography sx={{ fontSize: "36px" }}>Dříve Prodané</Typography>
-        <Box sx={{ width: "80%", mx: "auto", my: "22px" }}>
-          <PropertyCarousel images={house.images!} />
-        </Box>
+        </Section>
+
+        <Section title={"Prodej"}>
+          <Box sx={{ mx: "auto", my: "22px" }}>
+            <ListGroup
+              items={[
+                "Byty",
+                "Rodinné Domy",
+                "Rekreační",
+                "Komerční",
+                "Činžové Domy",
+                "Pozemky",
+                "Ostatní",
+              ]}
+              icons={[
+                ApartmentIcon,
+                HouseIcon,
+                DeckIcon,
+                FactoryIcon,
+                LocationCityIcon,
+                FenceIcon,
+                HomeWorkIcon,
+              ]}
+            />
+          </Box>
+        </Section>
+
+        <Section title={"Dříve Prodané"}>
+          <Box sx={{ width: "80%", mx: "auto", my: "22px" }}>
+            <PropertyCarousel images={house.images!} />
+          </Box>
+        </Section>
+
+        <Section title={"Makléři"}>
+          <RealtorGalery />
+        </Section>
+
         <Footer />
       </Stack>
     </Container>

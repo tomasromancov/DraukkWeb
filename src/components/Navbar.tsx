@@ -10,12 +10,13 @@ import HomeIcon from "@mui/icons-material/Home";
 
 function Navbar() {
   const navItems = new Map<string, string>([
-    ["O FIRMĚ", "index.html"],
+    ["O NÁS", "index.html"],
     ["NEMOVITOSTI", "nemovitosti.html"],
     ["VIDEOPROHLÍDKY", ""],
     ["NOVINKY", ""],
     ["REFERENCE", ""],
     ["PODMÍNKY", ""],
+    ["KONTAKTY", ""],
   ]);
 
   const openInstagram = () => {
@@ -27,12 +28,12 @@ function Navbar() {
       <nav>
         {/*Navbar image div*/}
         <Box
-          style={{
+          sx={{
             position: "relative",
             display: "inline-block",
             width: "100%",
-            height: 160,
-            minWidth: 236,
+            height: "160px",
+            minWidth: "236px",
           }}
         >
           <img
@@ -67,7 +68,6 @@ function Navbar() {
               position: "absolute",
               top: "10%",
               right: "2%",
-              //transform: "translate(-50%, -50%)",
             }}
           >
             <Stack direction="row" spacing={1}>
@@ -76,9 +76,7 @@ function Navbar() {
                 backgroundColor={Colors.red}
                 hoverColor="white"
                 svgColor="white"
-                onClick={() => {
-                  window.open("https://www.instagram.com/saintjavelin/");
-                }}
+                onClick={openInstagram}
               />
               <SvgButton
                 component={FacebookIcon}
@@ -91,6 +89,60 @@ function Navbar() {
           </Box>
         </Box>
         {/* Navbar items generated using Navbar Map*/}
+        {/* <Stack
+          direction="row"
+          sx={{
+            m: "0",
+            p: "0",
+            overflow: "hidden",
+            bgcolor: "#8a0707",
+            minWidth: "100px",
+            borderRadius: "15px",
+          }}
+        >
+          <Box
+            style={{ paddingBottom: "10px", paddingTop: "10px" }}
+            sx={{
+              width: "5.5%",
+              display: "inline-block",
+              color: "#ffffff",
+              fontWeight: "bold",
+              textAlign: "center",
+              padding: "14px 16px",
+              textDecoration: "none" ,
+              minWidth:
+                "100px" ,
+              ":hover": {
+                bgcolor: "#a13737",
+              },
+            }}
+          >
+            <SvgIcon
+              component={HomeIcon}
+              sx={{ fontSize: "32px", fill: "#FFFFFF" }}
+            />
+          </Box>
+          {Array.from(navItems, ([item, link]) => (
+            <Box
+              sx={{
+                width: "13.5%",
+                display: "inline-block",
+                color: "#ffffff",
+                fontWeight: "bold" ,
+                textAlign: "center",
+                padding: "14px 16px",
+                textDecoration: "none",
+                minWidth:
+                  "100px",
+                ":hover": {
+                  bgcolor: "#a13737",
+                },
+              }}
+            >
+              {item}
+            </Box>
+          ))}
+        </Stack> */}
         <ul className="menulist">
           <li className="menulist">
             <a style={{ paddingBottom: "10px", paddingTop: "10px" }}>
