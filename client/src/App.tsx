@@ -21,8 +21,19 @@ import FactoryIcon from "@mui/icons-material/Factory";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
 import Section from "./components/Section";
+import axios from "axios";
+import { useEffect } from "react";
 
 function App() {
+  const fetchAPI = async () => {
+    const response = await axios.get("http://localhost:8080/api");
+    console.log(response.data.fruits);
+  };
+
+  useEffect(() => {
+    fetchAPI();
+  }, []);
+
   //converts json to objects
   let house = new Property("House 1", "Vodickova", 100000, house1Img, [
     house1Img,
