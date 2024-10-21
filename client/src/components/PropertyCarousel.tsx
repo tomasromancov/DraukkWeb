@@ -2,7 +2,6 @@ import { Box, SvgIcon } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import { Colors } from "../ts/Colors.ts";
 
 interface Props {
   images: string[];

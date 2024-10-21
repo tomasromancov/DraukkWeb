@@ -1,5 +1,4 @@
 import { Box, Divider, Paper, Stack, Typography } from "@mui/material";
-import house1 from "../assets/house1.jpg";
 import { Property } from "../ts/Property";
 import React, { Fragment, useRef } from "react";
 import Popup from "./Popup";

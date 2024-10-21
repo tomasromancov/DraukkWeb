@@ -1,6 +1,5 @@
 import { SvgIcon, Box, SxProps } from "@mui/material";
 import { ElementType } from "react";
-import { Colors } from "../ts/Colors";
 import React from "react";
 
 interface Props {
