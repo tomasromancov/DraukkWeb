@@ -2,12 +2,12 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const corsOptions = {
-  origin: ["https://ubiquitous-creponne-8b56a1.netlify.app"],
+  origin: ["https://kaleidoscopic-axolotl-b5e3f8.netlify.app"],
 };
 const connection = require("./config");
 const property = require("./property");
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.get("/api", (req, res) => {
   res.json({ fruits: ["apple", "orange", "banana"] });
