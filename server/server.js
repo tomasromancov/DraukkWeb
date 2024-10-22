@@ -4,7 +4,8 @@ const cors = require("cors");
 const corsOptions = {
   origin: ["https://ubiquitous-creponne-8b56a1.netlify.app"],
 };
-const connection = require('./config');
+const connection = require("./config");
+const property = require("./property");
 
 app.use(cors(corsOptions));
 
@@ -18,18 +19,12 @@ app.listen(8080, () => {
 
 connection.connect();
 
-async function getProperties() {
-  return new Promise((resolve, reject) => {
-      connection.query('Select * from properties', (err, rows) => {
-          if(err)
-              reject(err);
-          else
-              resolve(rows);
-      });
-  });
-}
-
-app.get('/properties', async function(req, res){
-  const properties = await getProperties();
-  res.send({properties});
+//GET all properties
+app.get("/properties", async function (req, res) {
+  const properties = await property.getProperties();
+  try {
+    res.send({ properties });
+  } catch (error) {
+    res.status(500).send({ error: "Failed to fetch properties" });
+  }
 });
