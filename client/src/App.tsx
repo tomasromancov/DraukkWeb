@@ -20,13 +20,42 @@ import LocationCityIcon from "@mui/icons-material/LocationCity";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
 import Section from "./components/Section";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const fetchAPI = async () => {
-    const response = await axios.get("http://localhost:8080/api");
+    const response = await axios.get(
+      "https://dufekweb-production.up.railway.app/api"
+    );
     console.log(response.data.fruits);
   };
+
+  const [properties, setProperties] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Fetch properties from your backend
+    fetch("https://dufekweb-production.up.railway.app/properties")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Use the properties data from the response
+        setProperties(data.properties); // `data.properties` refers to the properties key in the response
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setLoading(false);
+      });
+  }, []); // Empty dependency array to run this effect once when the component mounts
+  console.log("Properties: " + properties);
+  console.log("Loading: " + loading);
+  console.log("Error: " + error);
 
   useEffect(() => {
     fetchAPI();
