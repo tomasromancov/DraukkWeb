@@ -53,7 +53,7 @@ function App() {
         setLoading(false);
       });
   }, []); // Empty dependency array to run this effect once when the component mounts
-  console.log("Properties: " + properties);
+  console.log("Properties: " + JSON.stringify(properties, null, 2));
   console.log("Loading: " + loading);
   console.log("Error: " + error);
 

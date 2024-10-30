@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const corsOptions = {
-  origin: ["https://kaleidoscopic-axolotl-b5e3f8.netlify.app"],
+  origin: ["https://drauk.netlify.app"],
 };
 const connection = require("./config");
 const property = require("./property");
