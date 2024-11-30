@@ -3,7 +3,7 @@ import { Box, Stack, SvgIcon } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import "../styles.css";
-import Navbarimage from "../assets/navbarimage.jpg";
+import Navbarimage from "../assets/navbarimage4.jpg";
 import SvgButton from "./SvgButton";
 import { Colors } from "../ts/Colors";
 import HomeIcon from "@mui/icons-material/Home";
@@ -60,7 +60,7 @@ function Navbar() {
               whiteSpace: "nowrap",
             }}
           >
-            garance - solidnost - jistota Váš partner již 30 let
+            Draukk - Realitní Kancelář
           </Box>
           {/*Social media links */}
           <Box
