@@ -92,7 +92,7 @@ function App() {
           </Box>
         </Section>
 
-        <Section title={"Makléři"}>
+        <Section title={"Realitní Specialisté"}>
           <RealtorGalery />
         </Section>
 

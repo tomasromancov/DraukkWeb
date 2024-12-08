@@ -52,7 +52,7 @@ function Navbar() {
           />
           {/* Text over navbar image */}
           <Box
-            style={{
+            sx={{
               position: "absolute",
               top: "50%",
               left: "50%",
@@ -62,13 +62,15 @@ function Navbar() {
               fontSize: 30,
               textAlign: "center",
               whiteSpace: "nowrap",
+              backgroundColor: "white",
+              px: "5px",
             }}
           >
             Draukk - Realitní Kancelář
           </Box>
           {/*Social media links */}
           <Box
-            style={{
+            sx={{
               position: "absolute",
               top: "10%",
               right: "2%",
