@@ -23,44 +23,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function App() {
-  const fetchAPI = async () => {
-    const response = await axios.get(
-      "https://dufekweb-production.up.railway.app/api"
-    );
-    console.log(response.data.fruits);
-  };
-
-  const [properties, setProperties] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    // Fetch properties from your backend
-    fetch("https://dufekweb-production.up.railway.app/properties")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        // Use the properties data from the response
-        setProperties(data.properties); // `data.properties` refers to the properties key in the response
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error);
-        setLoading(false);
-      });
-  }, []); // Empty dependency array to run this effect once when the component mounts
-  console.log("Properties: " + JSON.stringify(properties, null, 2));
-  console.log("Loading: " + loading);
-  console.log("Error: " + error);
-
-  useEffect(() => {
-    fetchAPI();
-  }, []);
-
   //converts json to objects
   let house = new Property("House 1", "Vodickova", 100000, house1Img, [
     house1Img,
