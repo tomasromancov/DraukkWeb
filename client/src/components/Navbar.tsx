@@ -10,8 +10,8 @@ import HomeIcon from "@mui/icons-material/Home";
 
 function Navbar() {
   const navItems = new Map<string, string>([
-    ["O NÁS", "index.html"],
-    ["NEMOVITOSTI", "nemovitosti.html"],
+    ["O NÁS", ""],
+    ["NEMOVITOSTI", ""],
     ["VIDEOPROHLÍDKY", ""],
     ["NOVINKY", ""],
     ["REFERENCE", ""],
@@ -20,7 +20,11 @@ function Navbar() {
   ]);
 
   const openInstagram = () => {
-    window.open("https://www.instagram.com/saintjavelin/");
+    window.open("instagramlink");
+  };
+
+  const openFacebook = () => {
+    window.open("facebooklink");
   };
 
   return (
@@ -83,7 +87,7 @@ function Navbar() {
                 backgroundColor={Colors.red}
                 hoverColor="white"
                 svgColor="white"
-                onClick={openInstagram}
+                onClick={openFacebook}
               />
             </Stack>
           </Box>

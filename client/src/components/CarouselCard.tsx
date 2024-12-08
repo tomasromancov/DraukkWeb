@@ -40,11 +40,10 @@ function CarouselCard({ card }: Props) {
           borderRadius: "12px",
           width: "180px",
           height: "220px",
+          transition: "transform 0.3s ease-out",
           "&:hover": {
-            height: "241px",
-            width: "201px",
+            transform: "scale(1.1)",
           },
-          transition: "width 0.3s ease-out, height 0.3s ease-out",
         }}
         onClick={() => setOpenPopupInfo(true)}
         // onMouseEnter={() => setCardHover(true)}

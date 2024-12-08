@@ -68,7 +68,7 @@ li.menulist a,
 
 li.menulist a:hover,
 .dropdown:hover .dropbtn {
-  background-color: #a13737;
+  /*background-color: #a13737;*/
 }
 
 /* Format all p elements as required */

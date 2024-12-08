@@ -76,7 +76,7 @@ function App() {
     <Container>
       <Stack direction="column" sx={{ height: "100%", width: "100%" }}>
         <Navbar />
-        <Section title="Nově Přidané">
+        <Section title="Nabídka Nemovitostí">
           <Carousel
             cards={[
               house,
