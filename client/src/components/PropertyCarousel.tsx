@@ -11,35 +11,33 @@ function PropertyCarousel({ images }: Props) {
   return (
     <Splide
       hasTrack={false}
-      aria-labell="Splide Carousel"
+      aria-label="Splide Carousel"
       options={{ type: "loop", autoplay: true, interval: 4000 }}
     >
       <Box>
         <SplideTrack style={{ height: "100%" }}>
           {images.map((image, index) => (
-            <>
-              <SplideSlide key={index}>
-                <Box
-                  sx={{
+            <SplideSlide key={index}>
+              <Box
+                sx={{
+                  width: "100%",
+                  height: "100%",
+                  overflow: "hidden",
+                  borderRadius: "12px",
+                }}
+              >
+                <img
+                  key={index}
+                  src={image}
+                  alt={"Image " + index}
+                  style={{
                     width: "100%",
                     height: "100%",
-                    overflow: "hidden",
-                    borderRadius: "12px",
+                    objectFit: "cover",
                   }}
-                >
-                  <img
-                    key={index}
-                    src={image}
-                    alt={"Image " + index}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                  />
-                </Box>
-              </SplideSlide>
-            </>
+                />
+              </Box>
+            </SplideSlide>
           ))}
         </SplideTrack>
         {/* Custom arrows for the carousel.

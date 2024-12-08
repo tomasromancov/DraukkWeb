@@ -6,8 +6,9 @@ let realtors = ["Jan Jedlička", "Pavel Macek", "Josef Černý"];
 function RealtorGalery() {
   return (
     <Stack direction="row" justifyContent="space-between" sx={{ my: "22px" }}>
-      {realtors.map((realtor) => (
+      {realtors.map((realtor, index) => (
         <Paper
+          key={index}
           elevation={8}
           sx={{
             bgcolor: "#DDDDDD",
