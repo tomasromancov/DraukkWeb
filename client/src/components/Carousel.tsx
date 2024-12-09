@@ -14,30 +14,30 @@ interface Props {
 }
 
 function sortCards(cards: Property[]) {
-  // Screen resizing has an ERROR: Scaling down (making the window size larger)
-  // deletes the slides at the end of the carousel making the rest of the carousel inaccesible
+  /* Screen resizing has an ERROR: Scaling down (making the window size larger)
+  deletes the slides at the end of the carousel making the rest of the carousel inaccesible */
 
   // State to hold the number of cards to display
   const [cardsPerPage, setCardsPerPage] = useState<number>(4);
   // Update the number of cards based on screen width
-  const updateCardsPerPage = () => {
-    if (window.innerWidth < 768) {
-      setCardsPerPage(2); // Extra Small screens show 3 cards
-    } else if (window.innerWidth < 1024) {
-      setCardsPerPage(3); // Small screens show 2 cards
-    } else {
-      setCardsPerPage(4); // Larger screens show 4 cards
-    }
-  };
+  // const updateCardsPerPage = () => {
+  //   if (window.innerWidth < 768) {
+  //     setCardsPerPage(2); // Extra Small screens show 3 cards
+  //   } else if (window.innerWidth < 1024) {
+  //     setCardsPerPage(3); // Small screens show 2 cards
+  //   } else {
+  //     setCardsPerPage(4); // Larger screens show 4 cards
+  //   }
+  // };
 
   // Add an event listener on window resize
-  useEffect(() => {
-    updateCardsPerPage(); // Set the initial value based on screen width
+  // useEffect(() => {
+  //   updateCardsPerPage(); // Set the initial value based on screen width
 
-    window.addEventListener("resize", updateCardsPerPage); // Add listener for resize
+  //   window.addEventListener("resize", updateCardsPerPage); // Add listener for resize
 
-    return () => window.removeEventListener("resize", updateCardsPerPage); // Cleanup
-  }, []);
+  //   return () => window.removeEventListener("resize", updateCardsPerPage); // Cleanup
+  // }, []);
 
   let sortedCards: Property[][] = [];
   let cardCounter = 0;
