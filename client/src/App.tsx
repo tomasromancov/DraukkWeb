@@ -6,9 +6,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Property } from "./ts/Property";
 import Footer from "./components/Footer";
-import house1Img from "./assets/house1.jpg";
-import house2Img from "./assets/house2.webp";
-import house3Img from "./assets/house3.jpg";
+import house1Img from "/assets/house1.jpg";
+import house2Img from "/assets/house2.webp";
+import house3Img from "/assets/house3.jpg";
 import RealtorGalery from "./components/RealtorGalery";
 import PropertyCarousel from "./components/PropertyCarousel";
 import ApartmentIcon from "@mui/icons-material/Apartment";
@@ -19,11 +19,12 @@ import FactoryIcon from "@mui/icons-material/Factory";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
 import Section from "./components/Section";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import rawProperties from "./data/Properties.json";
 
 function App() {
   //converts json to objects
+  const properties: Property[] = rawProperties as Property[];
+
   let house = new Property("House 1", "Vodickova", 100000, house1Img, [
     house1Img,
     house2Img,
@@ -39,26 +40,7 @@ function App() {
       <Stack direction="column" sx={{ height: "100%", width: "100%" }}>
         <Navbar />
         <Section title="Nabídka Nemovitostí">
-          <Carousel
-            cards={[
-              house,
-              house2,
-              house3,
-              house4,
-              house,
-              house2,
-              house3,
-              house4,
-              house,
-              house2,
-              house3,
-              house4,
-              house,
-              house2,
-              house3,
-              house4,
-            ]}
-          />
+          <Carousel cards={properties} />
         </Section>
 
         <Section title={"Prodej"}>

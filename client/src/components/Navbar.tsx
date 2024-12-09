@@ -3,7 +3,7 @@ import { Box, Stack, SvgIcon } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import "../styles.css";
-import Navbarimage from "../assets/navbarimage4.jpg";
+import Navbarimage from "/assets/navbarimage4.jpg";
 import SvgButton from "./SvgButton";
 import { Colors } from "../ts/Colors";
 import HomeIcon from "@mui/icons-material/Home";

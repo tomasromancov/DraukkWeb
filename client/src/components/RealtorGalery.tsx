@@ -1,5 +1,5 @@
 import { Box, Paper, Stack, Typography } from "@mui/material";
-import blankProfile from "../assets/blankProfile.webp";
+import blankProfile from "/assets/blankProfile.webp";
 
 let realtors = ["Jan Jedlička", "Pavel Macek", "Josef Černý"];
 

@@ -9,7 +9,7 @@ import { Colors } from "../ts/Colors";
 import SvgButton from "./SvgButton";
 import PropertyCarousel from "./PropertyCarousel";
 import PropertyInfo from "./PropertyInfo";
-import blankProfile from "../assets/blankProfile.webp";
+import blankProfile from "/assets/blankProfile.webp";
 
 interface Props {
   card: Property;
@@ -18,7 +18,6 @@ interface Props {
 function CarouselCard({ card }: Props) {
   const [openPopupInfo, setOpenPopupInfo] = React.useState(false);
   const [moreInfo, setMoreInfo] = React.useState(false);
-  // const [cardHover, setCardHover] = React.useState(false);
 
   const contentRef = useRef<HTMLDivElement | null>(null);
 
@@ -46,8 +45,6 @@ function CarouselCard({ card }: Props) {
           },
         }}
         onClick={() => setOpenPopupInfo(true)}
-        // onMouseEnter={() => setCardHover(true)}
-        // onMouseLeave={() => setCardHover(false)}
       >
         <Stack sx={{ height: "100%" }}>
           <Box
@@ -76,32 +73,12 @@ function CarouselCard({ card }: Props) {
             sx={{
               fontWeight: "bold",
               fontSize: "20px",
-              // fontSize: cardHover ? "21px" : "18px",
-              // transition: "font-size 0.3s ease-out",
             }}
           >
             {card ? card.name : "house"}
           </Typography>
-          <Typography
-            sx={
-              {
-                // fontSize: cardHover ? "17px" : "14px",
-                // transition: "font-size 0.3s ease-out",
-              }
-            }
-          >
-            {card.address}
-          </Typography>
-          <Typography
-            sx={
-              {
-                // fontSize: cardHover ? "17px" : "14px",
-                // transition: "font-size 0.3s ease-out",
-              }
-            }
-          >
-            {card.cost}kc
-          </Typography>
+          <Typography>{card.address}</Typography>
+          <Typography>{card.cost}kc</Typography>
         </Stack>
       </Paper>
       {openPopupInfo && (
