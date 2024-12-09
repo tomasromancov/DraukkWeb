@@ -25,7 +25,7 @@
     ]
   },
   {
-    "name": "House 3",
+    "name": "House 4",
     "address": "Italska",
     "cost": 35700,
     "thumbnail": "/assets/house3.jpg",
@@ -36,7 +36,40 @@
     ]
   },
   {
-    "name": "House 3",
+    "name": "House 5",
+    "address": "Italska",
+    "cost": 35700,
+    "thumbnail": "/assets/house3.jpg",
+    "images": [
+      "/assets/house3.jpg",
+      "/assets/house1.jpg",
+      "/assets/house2.webp"
+    ]
+  },
+  {
+    "name": "House 6",
+    "address": "Italska",
+    "cost": 35700,
+    "thumbnail": "/assets/house3.jpg",
+    "images": [
+      "/assets/house3.jpg",
+      "/assets/house1.jpg",
+      "/assets/house2.webp"
+    ]
+  },
+  {
+    "name": "House 7",
+    "address": "Italska",
+    "cost": 35700,
+    "thumbnail": "/assets/house3.jpg",
+    "images": [
+      "/assets/house3.jpg",
+      "/assets/house1.jpg",
+      "/assets/house2.webp"
+    ]
+  },
+  {
+    "name": "House 8",
     "address": "Italska",
     "cost": 35700,
     "thumbnail": "/assets/house3.jpg",

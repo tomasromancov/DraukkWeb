@@ -1,8 +1,11 @@
 export class Property {
+  //card variables
   name!: string;
   address!: string;
   cost!: number;
   thumbnail?: string;
+
+  //expanded view variables
   images?: string[];
 
   // Constructor to initialize the fields
@@ -18,5 +21,9 @@ export class Property {
     this.cost = cost;
     this.thumbnail = thumbnail;
     this.images = images;
+  }
+
+  public getCost(): string {
+    return this.cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " Kč";
   }
 }

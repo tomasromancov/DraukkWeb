@@ -25,8 +25,19 @@ import { Realtor } from "./ts/Realtor";
 
 function App() {
   //converts json to objects
-  const properties: Property[] = rawProperties as Property[];
-  const realtors: Realtor[] = rawRealtors as Realtor[];
+  const properties: Property[] = rawProperties.map(
+    (rawProp) =>
+      new Property(
+        rawProp.name,
+        rawProp.address,
+        rawProp.cost,
+        rawProp.thumbnail,
+        rawProp.images
+      )
+  );
+  const realtors: Realtor[] = rawRealtors.map(
+    (rawProp) => new Realtor(rawProp.name, rawProp.email, rawProp.phoneNumber)
+  );
 
   let house = new Property("House 1", "Vodickova", 100000, house1Img, [
     house1Img,

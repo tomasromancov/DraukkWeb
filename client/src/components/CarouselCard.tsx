@@ -78,7 +78,7 @@ function CarouselCard({ card }: Props) {
             {card ? card.name : "house"}
           </Typography>
           <Typography>{card.address}</Typography>
-          <Typography>{card.cost}kc</Typography>
+          <Typography>{card.getCost()}</Typography>
         </Stack>
       </Paper>
       {openPopupInfo && (
