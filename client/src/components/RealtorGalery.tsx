@@ -1,12 +1,17 @@
 import { Box, Paper, Stack, Typography } from "@mui/material";
 import blankProfile from "/assets/blankProfile.webp";
+import { Realtor } from "../ts/Realtor";
 
 let realtors = ["Jan Jedlička", "Pavel Macek", "Josef Černý"];
 
-function RealtorGalery() {
+interface Props {
+  cards: Realtor[];
+}
+
+function RealtorGalery({ cards }: Props) {
   return (
     <Stack direction="row" justifyContent="space-between" sx={{ my: "22px" }}>
-      {realtors.map((realtor, index) => (
+      {cards.map((realtor, index) => (
         <Paper
           key={index}
           elevation={8}
@@ -18,7 +23,7 @@ function RealtorGalery() {
           }}
         >
           <Typography sx={{ fontSize: "20px", fontWeight: "Bold", py: "10px" }}>
-            {realtor}
+            {realtor.name}
           </Typography>
           <Box
             justifyContent="flex-start"
@@ -44,11 +49,11 @@ function RealtorGalery() {
           </Box>
           <a
             style={{ paddingLeft: "15px", paddingRight: "15px" }}
-            href="mailto:jan.jedlicka@gmail.com?Subject=Further%20Information"
+            href={`mailto:${realtor.email}?Subject=Further%20Information`}
           >
-            {"jan.jedlicka@gmail.com"}
+            {realtor.email}
           </a>
-          <Typography>{"+420 665 190 695"}</Typography>
+          <Typography>{realtor.phoneNumber}</Typography>
         </Paper>
       ))}
     </Stack>

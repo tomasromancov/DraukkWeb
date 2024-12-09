@@ -20,10 +20,13 @@ import LocationCityIcon from "@mui/icons-material/LocationCity";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
 import Section from "./components/Section";
 import rawProperties from "./data/Properties.json";
+import rawRealtors from "./data/Realtors.json";
+import { Realtor } from "./ts/Realtor";
 
 function App() {
   //converts json to objects
   const properties: Property[] = rawProperties as Property[];
+  const realtors: Realtor[] = rawRealtors as Realtor[];
 
   let house = new Property("House 1", "Vodickova", 100000, house1Img, [
     house1Img,
@@ -75,7 +78,7 @@ function App() {
         </Section>
 
         <Section title={"Realitní Specialisté"}>
-          <RealtorGalery />
+          <RealtorGalery cards={realtors} />
         </Section>
 
         <Footer />
