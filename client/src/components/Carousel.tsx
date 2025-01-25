@@ -9,7 +9,7 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import { Property } from "../ts/Property";
 
 interface Props {
-  cards: Property[];
+  cards?: Property[];
   title?: string;
 }
 
@@ -81,30 +81,31 @@ function Carousel({ cards, title }: Props) {
           }}
         >
           {/**Cards are sorted into lists where each list will get displayed at a time in a single carousel slide */}
-          {sortCards(cards).map((cardList, index) => (
-            <Box
-              key={index}
-              className={`carousel-item ${index === 0 ? "active" : ""}`}
-              sx={{ width: "100%" }}
-            >
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-                sx={{
-                  width: "80%",
-                  height: "100%",
-                  py: "30px",
-                  margin: "auto",
-                }}
+          {cards &&
+            sortCards(cards).map((cardList, index) => (
+              <Box
+                key={index}
+                className={`carousel-item ${index === 0 ? "active" : ""}`}
+                sx={{ width: "100%" }}
               >
-                {}
-                {cardList.map((card) => (
-                  <CarouselCard key={card.name + index} card={card} />
-                ))}
-              </Stack>
-            </Box>
-          ))}
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  sx={{
+                    width: "80%",
+                    height: "100%",
+                    py: "30px",
+                    margin: "auto",
+                  }}
+                >
+                  {}
+                  {cardList.map((card) => (
+                    <CarouselCard key={card.name + index} card={card} />
+                  ))}
+                </Stack>
+              </Box>
+            ))}
         </div>
 
         {/*Button for moving to the previous carousel slide */}

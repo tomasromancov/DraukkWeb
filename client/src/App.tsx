@@ -19,22 +19,43 @@ import FactoryIcon from "@mui/icons-material/Factory";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
 import Section from "./components/Section";
-import rawProperties from "./data/Properties.json";
+//import rawProperties from "./data/Properties.json";
 import rawRealtors from "./data/Realtors.json";
 import { Realtor } from "./ts/Realtor";
+import { useEffect, useState } from "react";
 
 function App() {
-  //converts json to objects
-  const properties: Property[] = rawProperties.properties.map(
-    (rawProp) =>
-      new Property(
-        rawProp.name,
-        rawProp.address,
-        rawProp.cost,
-        rawProp.thumbnail,
-        rawProp.images
-      )
-  );
+  const [properties, setProperties] = useState(null);
+
+  useEffect(() => {
+    fetch(
+      `https://storage.googleapis.com/draukk/Data/Properties.json?timestamp=${new Date().getTime()}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.properties);
+        //converts json to objects
+        const propertyList = data.properties.map(
+          (rawProp: {
+            name: string;
+            address: string;
+            cost: number;
+            thumbnail: string | undefined;
+            images: string[] | undefined;
+          }) =>
+            new Property(
+              rawProp.name,
+              rawProp.address,
+              rawProp.cost,
+              rawProp.thumbnail,
+              rawProp.images
+            )
+        );
+        setProperties(propertyList);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
   const realtors: Realtor[] = rawRealtors.map(
     (rawProp) => new Realtor(rawProp.name, rawProp.email, rawProp.phoneNumber)
   );
@@ -45,16 +66,13 @@ function App() {
     house1Img,
     house3Img,
   ]);
-  let house2 = new Property("House 2", "Jeremiasova", 150000, house2Img);
-  let house3 = new Property("House 3", "Lidicka", 235000, house1Img);
-  let house4 = new Property("House 4", "Gercenova", 123000, house3Img);
 
   return (
     <Container>
       <Stack direction="column" sx={{ height: "100%", width: "100%" }}>
         <Navbar />
         <Section title="Nabídka Nemovitostí">
-          <Carousel cards={properties} />
+          {properties ? <Carousel cards={properties} /> : <></>}
         </Section>
 
         <Section title={"Prodej"}>
