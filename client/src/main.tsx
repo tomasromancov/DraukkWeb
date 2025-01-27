@@ -13,6 +13,15 @@ const theme = createTheme({
       main: "#456789",
     },
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 860,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
 });
 
 createRoot(document.getElementById("root")!).render(

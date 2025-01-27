@@ -13,13 +13,13 @@ function ListGroup({ items, icons }: Props) {
     <Box
       sx={{
         width: "100%",
-        height: "110px",
+        height: { sm: "auto", md: "110px" },
         borderRadius: "12px",
         overflow: "hidden",
       }}
     >
       <Stack
-        direction="row"
+        direction={{ sm: "column", md: "row" }}
         justifyContent="space-between"
         sx={{ width: "100%", height: "100%" }}
       >
@@ -29,6 +29,7 @@ function ListGroup({ items, icons }: Props) {
             sx={{
               backgroundColor: Colors.red,
               width: "100%",
+              py: { xs: "8px", sm: "8px", md: "0px" },
               alignContent: "center",
               ":hover": {
                 backgroundColor: Colors.redHover,

@@ -10,7 +10,11 @@ interface Props {
 
 function RealtorGalery({ cards }: Props) {
   return (
-    <Stack direction="row" justifyContent="space-between" sx={{ my: "22px" }}>
+    <Stack
+      direction="row"
+      justifyContent="space-around"
+      sx={{ my: "22px", flexWrap: "wrap" }}
+    >
       {cards.map((realtor, index) => (
         <Paper
           key={index}
@@ -20,6 +24,7 @@ function RealtorGalery({ cards }: Props) {
             borderRadius: "12px",
             width: "240px",
             height: "345px",
+            m: "12px",
           }}
         >
           <Typography sx={{ fontSize: "20px", fontWeight: "Bold", py: "10px" }}>
