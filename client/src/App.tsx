@@ -19,14 +19,14 @@ import FactoryIcon from "@mui/icons-material/Factory";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
 import Section from "./components/Section";
-//import rawProperties from "./data/Properties.json";
-import rawRealtors from "./data/Realtors.json";
 import { Realtor } from "./ts/Realtor";
 import { useEffect, useState } from "react";
 
 function App() {
   const [properties, setProperties] = useState(null);
+  const [realtors, setRealtors] = useState(null);
 
+  //Fetch properties from google cloud
   useEffect(() => {
     fetch(
       `https://storage.googleapis.com/draukk/Data/Properties.json?timestamp=${new Date().getTime()}`
@@ -56,9 +56,27 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
-  const realtors: Realtor[] = rawRealtors.map(
-    (rawProp) => new Realtor(rawProp.name, rawProp.email, rawProp.phoneNumber)
-  );
+  //Fetch realtors from google cloud
+  useEffect(() => {
+    fetch(
+      `https://storage.googleapis.com/draukk/Data/Realtors.json?timestamp=${new Date().getTime()}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.realtors);
+        //converts json to objects
+        const realtorList = data.realtors.map(
+          (rawRealtor: { name: string; email: string; phoneNumber: string }) =>
+            new Realtor(
+              rawRealtor.name,
+              rawRealtor.email,
+              rawRealtor.phoneNumber
+            )
+        );
+        setRealtors(realtorList);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   let house = new Property("House 1", "Vodickova", 100000, house1Img, [
     house1Img,
@@ -71,9 +89,12 @@ function App() {
     <Container>
       <Stack direction="column" sx={{ height: "100%", width: "100%" }}>
         <Navbar />
-        <Section title="Nabídka Nemovitostí">
-          {properties ? <Carousel cards={properties} /> : <></>}
-        </Section>
+
+        {properties && (
+          <Section title="Nabídka Nemovitostí">
+            <Carousel cards={properties} />
+          </Section>
+        )}
 
         <Section title={"Prodej"}>
           <Box sx={{ mx: "auto", my: "22px" }}>
@@ -106,9 +127,11 @@ function App() {
           </Box>
         </Section>
 
-        <Section title={"Realitní Specialisté"}>
-          <RealtorGalery cards={realtors} />
-        </Section>
+        {realtors && (
+          <Section title={"Realitní Specialisté"}>
+            <RealtorGalery cards={realtors} />
+          </Section>
+        )}
 
         <Footer />
       </Stack>
