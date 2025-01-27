@@ -12,10 +12,9 @@ function Navbar() {
   const navItems = new Map<string, string>([
     ["O NÁS", ""],
     ["NEMOVITOSTI", ""],
-    ["VIDEOPROHLÍDKY", ""],
     ["NOVINKY", ""],
     ["REFERENCE", ""],
-    ["PODMÍNKY", ""],
+    ["DOKUMENTY", ""],
     ["KONTAKTY", ""],
   ]);
 
@@ -150,6 +149,7 @@ function Navbar() {
           ))}
         </Stack> */}
         <ul className="menulist">
+          {/*Home icon*/}
           <li className="menulist">
             <a style={{ paddingBottom: "10px", paddingTop: "10px" }}>
               <SvgIcon

@@ -49,10 +49,13 @@ ul.menulist {
   background-color: #8a0707;
   min-width: 100px; /* Set minimum size of list set as blocks below */
   border-radius: 15px;
+  display: flex;
+  justify-content: space-around; /* Spread items evenly across the navbar */
 }
 
 li.menulist {
   float: left;
+  flex: 1;
 }
 
 li.menulist a,
@@ -61,14 +64,15 @@ li.menulist a,
   color: #ffffff;
   font-weight: bold; /* Set menu font bold */
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 0;
   text-decoration: none; /* Removes hyperlink underline*/
   min-width: 100px; /*Set minimum size of list and anchor set as blocks*/
+  width: 100%;
 }
 
 li.menulist a:hover,
 .dropdown:hover .dropbtn {
-  /*background-color: #a13737;*/
+  background-color: #a13737;
 }
 
 /* Format all p elements as required */
@@ -81,4 +85,10 @@ img {
   margin: 0;
   padding: 0;
   display: block; /* Ensures there's no inline space */
+}
+
+@media (max-width: 860px) {
+  ul.menulist {
+    flex-direction: column;
+  }
 }
