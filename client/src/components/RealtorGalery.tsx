@@ -2,8 +2,6 @@ import { Box, Paper, Stack, Typography } from "@mui/material";
 import blankProfile from "/assets/blankProfile.webp";
 import { Realtor } from "../ts/Realtor";
 
-let realtors = ["Jan Jedlička", "Pavel Macek", "Josef Černý"];
-
 interface Props {
   cards: Realtor[];
 }
