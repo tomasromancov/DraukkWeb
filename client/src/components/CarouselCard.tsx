@@ -39,6 +39,7 @@ function CarouselCard({ card }: Props) {
           borderRadius: "12px",
           width: "180px",
           height: "220px",
+          m: "22px",
           transition: "transform 0.3s ease-out",
           "&:hover": {
             transform: "scale(1.1)",

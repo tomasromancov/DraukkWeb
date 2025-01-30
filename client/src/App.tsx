@@ -1,7 +1,7 @@
 import { Box, Container, Stack } from "@mui/material";
 import ListGroup from "./components/ListGroup";
 import Navbar from "./components/Navbar";
-import Carousel from "./components/Carousel";
+import HomeCarousel from "./components/HomeCarousel";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Property } from "./ts/Property";
@@ -89,10 +89,9 @@ function App() {
     <Container>
       <Stack direction="column" sx={{ height: "100%", width: "100%" }}>
         <Navbar />
-
         {properties && (
           <Section title="Nabídka Nemovitostí">
-            <Carousel cards={properties} />
+            <HomeCarousel cards={properties} />
           </Section>
         )}
 
