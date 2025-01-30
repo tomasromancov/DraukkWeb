@@ -143,12 +143,16 @@ function CarouselCard({ card }: Props) {
                 Údaje
               </Typography>
               <PropertyInfo category="Adresa:" info={card.address} />
-              <PropertyInfo category="Cena: " info={card.cost + "Kč"} />
+              <PropertyInfo category="Cena: " info={card.getCost()} />
               <Divider sx={{ backgroundColor: "#000000", my: "20px" }} />
-              <PropertyInfo category="Plocha:" info="259 m^2" />
-              <PropertyInfo category="Pokoje:" info="7" />
-              <PropertyInfo category="Insulace:" info="Pěnová" />
-              <PropertyInfo category="Balkón:" info="ano" />
+              {/*Following info is generated using the property details array */}
+              {card.propertyDetails?.map((detail, index) => (
+                <PropertyInfo
+                  key={index}
+                  category={detail.title}
+                  info={detail.value}
+                />
+              ))}
               {/* Box with additional info */}
               <Box
                 sx={{

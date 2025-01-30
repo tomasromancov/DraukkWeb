@@ -22,6 +22,7 @@ import Section from "./components/Section";
 import { Realtor } from "./ts/Realtor";
 import { useEffect, useState } from "react";
 import googleBucket from "./ts/CloudImport";
+import PropertyDetail from "./ts/PropertyDetail";
 
 function App() {
   const [properties, setProperties] = useState(null);
@@ -43,13 +44,17 @@ function App() {
             cost: number;
             thumbnail: string | undefined;
             images: string[] | undefined;
+            propertyDetails?: { title: string; value: string }[];
           }) =>
             new Property(
               rawProp.name,
               rawProp.address,
               rawProp.cost,
               rawProp.thumbnail,
-              rawProp.images
+              rawProp.images,
+              rawProp.propertyDetails?.map(
+                (detail) => new PropertyDetail(detail.title, detail.value)
+              ) || []
             )
         );
         setProperties(propertyList);

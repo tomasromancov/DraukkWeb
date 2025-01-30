@@ -1,3 +1,5 @@
+import PropertyDetail from "./PropertyDetail";
+
 export class Property {
   //card variables
   name!: string;
@@ -7,6 +9,7 @@ export class Property {
 
   //expanded view variables
   images?: string[];
+  propertyDetails?: PropertyDetail[];
 
   // Constructor to initialize the fields
   constructor(
@@ -14,13 +17,15 @@ export class Property {
     address: string,
     cost: number,
     thumbnail?: string,
-    images?: string[]
+    images?: string[],
+    propertyDetails?: PropertyDetail[]
   ) {
     this.name = name;
     this.address = address;
     this.cost = cost;
     this.thumbnail = thumbnail;
     this.images = images;
+    this.propertyDetails = propertyDetails;
   }
 
   public getCost(): string {
