@@ -1,6 +1,6 @@
 import { Box, Divider, Paper, Stack, Typography } from "@mui/material";
 import { Property } from "../ts/Property";
-import React, { Fragment, useRef } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import Popup from "./Popup";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
@@ -10,16 +10,29 @@ import SvgButton from "./SvgButton";
 import PropertyCarousel from "./PropertyCarousel";
 import PropertyInfo from "./PropertyInfo";
 import blankProfile from "/assets/blankProfile.webp";
+import googleBucket from "../ts/CloudImport";
 
 interface Props {
   card: Property;
 }
 
 function CarouselCard({ card }: Props) {
-  const [openPopupInfo, setOpenPopupInfo] = React.useState(false);
-  const [moreInfo, setMoreInfo] = React.useState(false);
+  const [openPopupInfo, setOpenPopupInfo] = useState(false);
+  const [moreInfo, setMoreInfo] = useState(false);
+  const [thumbnail, setThumbnail] = useState<string | null>(null);
 
   const contentRef = useRef<HTMLDivElement | null>(null);
+
+  // Fetch thumbnail from Google Cloud
+  useEffect(() => {
+    fetch(`${googleBucket}${card.thumbnail}?timestamp=${new Date().getTime()}`)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const imageUrl = URL.createObjectURL(blob);
+        setThumbnail(imageUrl);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   const scrollToTop = () => {
     if (contentRef.current) {
@@ -60,15 +73,17 @@ function CarouselCard({ card }: Props) {
               overflow: "hidden",
             }}
           >
-            <img
-              src={card.thumbnail}
-              alt="card thumbnail"
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
-            />
+            {thumbnail && (
+              <img
+                src={thumbnail}
+                alt="card thumbnail"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            )}
           </Box>
           <Typography
             sx={{
@@ -82,6 +97,7 @@ function CarouselCard({ card }: Props) {
           <Typography>{card.getCost()}</Typography>
         </Stack>
       </Paper>
+      {/*Popup after clicking the carousel property card*/}
       {openPopupInfo && (
         <Popup
           title={
@@ -208,7 +224,7 @@ function CarouselCard({ card }: Props) {
                   overflow: "hidden",
                 }}
               >
-                <PropertyCarousel images={card.images} />
+                <PropertyCarousel cloud={true} images={card.images} />
               </Box>
             ) : (
               <Box
