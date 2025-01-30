@@ -21,6 +21,7 @@ import HomeWorkIcon from "@mui/icons-material/HomeWork";
 import Section from "./components/Section";
 import { Realtor } from "./ts/Realtor";
 import { useEffect, useState } from "react";
+import googleBucket from "./ts/CloudImport";
 
 function App() {
   const [properties, setProperties] = useState(null);
@@ -29,7 +30,7 @@ function App() {
   //Fetch properties from google cloud
   useEffect(() => {
     fetch(
-      `https://storage.googleapis.com/draukk/Data/Properties.json?timestamp=${new Date().getTime()}`
+      `${googleBucket}/Data/Properties.json?timestamp=${new Date().getTime()}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -59,7 +60,7 @@ function App() {
   //Fetch realtors from google cloud
   useEffect(() => {
     fetch(
-      `https://storage.googleapis.com/draukk/Data/Realtors.json?timestamp=${new Date().getTime()}`
+      `${googleBucket}/Data/Realtors.json?timestamp=${new Date().getTime()}`
     )
       .then((response) => response.json())
       .then((data) => {
