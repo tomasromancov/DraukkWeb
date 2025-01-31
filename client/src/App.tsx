@@ -33,7 +33,6 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.properties);
         //converts json to objects
         const propertyList = data.properties.map(
           (rawProp: {
@@ -67,7 +66,6 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.realtors);
         //converts json to objects
         const realtorList = data.realtors.map(
           (rawRealtor: { name: string; email: string; phoneNumber: string }) =>
