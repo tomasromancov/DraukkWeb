@@ -2,8 +2,6 @@ import { Box, Container, Stack } from "@mui/material";
 import ListGroup from "./components/ListGroup";
 import Navbar from "./components/Navbar";
 import HomeCarousel from "./components/HomeCarousel";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Property } from "./ts/Property";
 import Footer from "./components/Footer";
 import house1Img from "/assets/house1.jpg";
