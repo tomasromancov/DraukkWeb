@@ -20,6 +20,7 @@ function CarouselCard({ card }: Props) {
   const [openPopupInfo, setOpenPopupInfo] = useState(false);
   const [moreInfo, setMoreInfo] = useState(false);
   const [thumbnail, setThumbnail] = useState<string | null>(null);
+  const [contentHeight, setContentHeight] = useState("0px");
 
   const contentRef = useRef<HTMLDivElement | null>(null);
 
@@ -33,6 +34,14 @@ function CarouselCard({ card }: Props) {
       })
       .catch((error) => console.log(error));
   }, []);
+
+  useEffect(() => {
+    if (moreInfo && contentRef.current) {
+      setContentHeight(`${contentRef.current.scrollHeight}px`);
+    } else {
+      setContentHeight("0px");
+    }
+  }, [moreInfo]);
 
   const scrollToTop = () => {
     if (contentRef.current) {
@@ -131,11 +140,14 @@ function CarouselCard({ card }: Props) {
             </Stack>
           }
         >
-          <Stack direction="row" justifyContent="space-between">
+          <Stack
+            direction={{ sm: "column", md: "row" }}
+            justifyContent="space-between"
+          >
             <Stack
               direction="column"
               sx={{
-                width: "35%",
+                width: { sm: "100%", md: "35%" },
                 my: "8px",
               }}
             >
@@ -156,7 +168,7 @@ function CarouselCard({ card }: Props) {
               {/* Box with additional info */}
               <Box
                 sx={{
-                  height: moreInfo ? "100%" : "0px",
+                  height: contentHeight,
                   overflow: "hidden",
                   transition: "1s",
                 }}
@@ -222,7 +234,7 @@ function CarouselCard({ card }: Props) {
                 justifyContent="flex-start"
                 alignItems="center"
                 sx={{
-                  width: "55%",
+                  width: { sm: "100%", md: "55%" },
                   marginTop: "8px",
                   borderRadius: "12px",
                   overflow: "hidden",
