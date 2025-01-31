@@ -1,6 +1,6 @@
 import { Box, Divider, Paper, Stack, Typography } from "@mui/material";
 import { Property } from "../ts/Property";
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import Popup from "./Popup";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";

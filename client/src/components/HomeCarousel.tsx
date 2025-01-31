@@ -4,7 +4,6 @@ import "@splidejs/react-splide/css";
 import { Property } from "../ts/Property";
 import { Box, SvgIcon } from "@mui/material";
 import CarouselCard from "./CarouselCard";
-import { display } from "@splidejs/splide/src/js/utils";
 
 interface Props {
   cards?: Property[];
