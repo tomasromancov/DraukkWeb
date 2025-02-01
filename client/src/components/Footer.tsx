@@ -7,7 +7,7 @@ import navItems from "../ts/navItems.ts";
 
 function Footer() {
   const openInstagram = () => {
-    window.open("https://www.instagram.com/saintjavelin/");
+    window.open("https://www.instagram.com/");
   };
 
   return (
