@@ -31,7 +31,7 @@ export default function Popup(props: Props) {
   return (
     <Dialog
       open={openPopup}
-      sx={{ margin: "0 auto", minWidth: "725px", height: "100%" }}
+      sx={{ margin: "0 auto", height: "100%" }}
       maxWidth="lg"
       fullWidth={fullWidth}
       onClose={() => setOpenPopup(false)}
