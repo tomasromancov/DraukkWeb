@@ -3,17 +3,9 @@ import { Colors } from "../ts/Colors.ts";
 import SvgButton from "./SvgButton.tsx";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import navItems from "../ts/navItems.ts";
 
 function Footer() {
-  const footItems = new Map<string, string>([
-    ["O FIRMĚ", "index.html"],
-    ["NEMOVITOSTI", "nemovitosti.html"],
-    ["VIDEOPROHLÍDKY", ""],
-    ["NOVINKY", ""],
-    ["REFERENCE", ""],
-    ["PODMÍNKY", ""],
-  ]);
-
   const openInstagram = () => {
     window.open("https://www.instagram.com/saintjavelin/");
   };
@@ -21,7 +13,7 @@ function Footer() {
   return (
     <footer>
       <ul className="menulist" style={{ backgroundColor: Colors.grey }}>
-        {Array.from(footItems, ([item, link]) => (
+        {Array.from(navItems, ([item, link]) => (
           <li key={item} className="menulist">
             <a href={link}>{item}</a>
           </li>

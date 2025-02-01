@@ -7,17 +7,9 @@ import Navbarimage from "/assets/navbarimage4.jpg";
 import SvgButton from "./SvgButton";
 import { Colors } from "../ts/Colors";
 import HomeIcon from "@mui/icons-material/Home";
+import navItems from "../ts/navItems";
 
 function Navbar() {
-  const navItems = new Map<string, string>([
-    ["O NÁS", ""],
-    ["NEMOVITOSTI", ""],
-    ["NOVINKY", ""],
-    ["REFERENCE", ""],
-    ["DOKUMENTY", ""],
-    ["KONTAKTY", ""],
-  ]);
-
   const openInstagram = () => {
     window.open("instagramlink");
   };
