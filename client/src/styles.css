@@ -94,4 +94,9 @@ img {
   ul.menulist {
     flex-direction: column;
   }
+
+  li.menulist a,
+  .dropbtn {
+    padding: 14px 0;
+  }
 }
