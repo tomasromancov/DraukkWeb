@@ -48,6 +48,7 @@ ul.menulist {
   overflow: hidden;
   background-color: #8a0707;
   min-width: 100px; /* Set minimum size of list set as blocks below */
+  min-height: 50px;
   border-radius: 15px;
   display: flex;
   justify-content: space-around; /* Spread items evenly across the navbar */
@@ -60,14 +61,16 @@ li.menulist {
 
 li.menulist a,
 .dropbtn {
-  display: inline-block; /* Displays list as block*/
+  display: flex; /* Use flexbox for the anchor */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
   color: #ffffff;
   font-weight: bold; /* Set menu font bold */
   text-align: center;
-  padding: 14px 0;
   text-decoration: none; /* Removes hyperlink underline*/
   min-width: 100px; /*Set minimum size of list and anchor set as blocks*/
   width: 100%;
+  height: 100%;
 }
 
 li.menulist a:hover,

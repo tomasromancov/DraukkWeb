@@ -151,7 +151,7 @@ function Navbar() {
         <ul className="menulist">
           {/*Home icon*/}
           <li className="menulist">
-            <a style={{ paddingBottom: "10px", paddingTop: "10px" }}>
+            <a>
               <SvgIcon
                 component={HomeIcon}
                 sx={{ fontSize: "32px", fill: "#FFFFFF" }}
