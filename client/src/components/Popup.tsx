@@ -38,10 +38,10 @@ export default function Popup(props: Props) {
     >
       <DialogTitle
         sx={{
-          paddingLeft: "60px",
-          paddingRight: "39px",
-          paddingTop: "55px",
-          paddingBottom: "36px",
+          paddingLeft: { sx: "6px", sm: "60px" },
+          paddingRight: { sx: "2px", sm: "39px" },
+          paddingTop: { sx: "2px", sm: "55px" },
+          paddingBottom: { sx: "2px", sm: "36px" },
         }}
       >
         <Stack
@@ -62,11 +62,12 @@ export default function Popup(props: Props) {
         ref={props.dialogRef}
         sx={{
           overflowY: "overlay",
-          paddingLeft: "64px",
-          marginRight: "46px",
-          paddingRight: "27px",
+          marginRight: { sx: "0px", sm: "46px" },
           paddingBottom: "0px",
-          marginBottom: "20px",
+          marginBottom: { sx: "0px", sm: "20px" },
+          paddingLeft: { sx: "6px", sm: "64px" },
+          paddingRight: { sx: "2px", sm: "27px" },
+          paddingTop: { sx: "2px", sm: "55px" },
           // Ensure the scrollbar overlays content
           scrollbarGutter: "stable",
           overflow: "overlay", // This allows the scrollbar to overlay the content
